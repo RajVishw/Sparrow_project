@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Purchase</title>
+</head>
+<body>
+    <h1>Create Purchase</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ purchase_form.as_p }}
+
+        <h2>Purchase Details</h2>
+        {{ detail_formset.management_form }}
+        {% for form in detail_formset %}
+            {{ form.as_table }}
+        {% endfor %}
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
